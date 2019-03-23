@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/background"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#03000000"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="USER - Sign Up"
+            android:textStyle="bold"
+            android:textColor="#ffff"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            />
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="94dp"
+
+        app:cardCornerRadius="50dp"
+        app:cardElevation="50dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                android:drawablePadding="10dp"
+                android:hint="NAME"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                android:textColorHint="#606060"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="20dp"
+                android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
+                android:drawablePadding="10dp"
+                android:hint="EMAIL"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColorHint="#606060"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="146dp"
+                android:layout_marginEnd="20dp"
+                android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+                android:drawablePadding="10dp"
+                android:hint="PHONE"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColorHint="#606060"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="223dp"
+                android:layout_marginEnd="20dp"
+                android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                android:drawablePadding="10dp"
+                android:hint="PLACE"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColorHint="#606060"
+                android:textSize="14sp" />
+
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="300dp"
+                android:layout_marginEnd="20dp"
+                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                android:drawablePadding="10dp"
+                android:hint="Password"
+                android:inputType="text"
+                android:padding="20dp"
+                android:textColorHint="#606060"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignRight="@id/card"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="1dp"
+
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/ic_arrow_forward_black_24dp"
+        android:tooltipText="Sign up"
+        android:translationZ="50dp"
+        app:elevation="120dp"
+        app:fabSize="normal" />
+</RelativeLayout>
+</ScrollView>
