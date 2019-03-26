@@ -18,15 +18,20 @@
             android:label="@string/title_activity_category_choose"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".UserLOGIN">
+
+        </activity>
+        <activity android:name=".UserSignUp" />
+        <activity android:name=".UserHome" />
+        <activity android:name=".LabourLogin" />
+        <activity android:name=".Category_selection" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserSignUp" />
-        <activity android:name=".UserHome" />
-        <activity android:name=".LabourLogin"></activity>
+        <activity android:name=".LabourHome" />
+        <activity android:name=".joblist"></activity>
     </application>
 
 </manifest>

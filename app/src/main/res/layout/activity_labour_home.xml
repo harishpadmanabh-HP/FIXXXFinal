@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/mapbackground"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="4"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Help us find you :"
+            android:textSize="30dp"
+            android:fontFamily="@font/righteous"
+            android:textColor="#000"
+            android:layout_weight="2"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:hint="Enter your location"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/righteous"
+            android:layout_weight="1"
+            android:id="@+id/placexml"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:onClick="jobsearch"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
+            android:layout_weight="2"
+            android:fontFamily="@font/josefin_bold"
+            android:gravity="center"
+            android:text="Search Jobs"
+            android:textStyle="bold"
+            android:textAlignment="textEnd"
+            android:textColor="#D30B0B"
+            android:textSize="30dp"
+            tools:ignore="RtlCompat" />
+
+        <ImageButton
+            android:translationZ="400dp"
+            android:elevation="400dp"
+            android:id="@+id/submit"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="172dp"
+            android:layout_marginTop="22dp"
+            android:layout_gravity="right"
+            android:layout_margin="20dp"
+            android:background="@drawable/compass" />
+
+    </LinearLayout>
+</LinearLayout>
