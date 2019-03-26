@@ -23,7 +23,7 @@ public class Category_selection extends AppCompatActivity {
     AsyncHttpClient client,client_labour_reg;
     RequestParams params,params_labour_reg;
 
-    EditText lbphone,lbpassword,lbname,lbemail,labph,lbaddress,jbcat;
+    EditText lbphone,lbpassword,lbname,lbemail,labph,lbaddress,jbcat,jpass;
 
     Button submitbtn;
 
@@ -102,6 +102,7 @@ public class Category_selection extends AppCompatActivity {
                                     editor.putString("name",namelab);
                                     editor.apply();
 
+startActivity(new Intent(Category_selection.this,LabourHome.class));
 
                                     Toast.makeText(Category_selection.this, "success", Toast.LENGTH_SHORT).show();
 
@@ -135,6 +136,7 @@ public class Category_selection extends AppCompatActivity {
                 lbaddress=cuslay.findViewById(R.id.laddress);
                 jbcat=cuslay.findViewById(R.id.jobcat);
                 submitbtn=cuslay.findViewById(R.id.sub);
+                jpass=cuslay.findViewById(R.id.jobpass);
 
                 AlertDialog.Builder ABc=new AlertDialog.Builder(Category_selection.this);
                 ABc.setView(cuslay);
@@ -149,13 +151,17 @@ public class Category_selection extends AppCompatActivity {
                         String lph=labph.getText().toString();
                         String lbadd=lbaddress.getText().toString();
                         String jbct=jbcat.getText().toString();
+                        String jpas=jpass.getText().toString();
+
+
+
 
                         if (!lnam.isEmpty()&&!leml.isEmpty()&&!lph.isEmpty()&&!lbadd.isEmpty()&&!jbct.isEmpty()){
 
                             params_labour_reg.put("name",lnam);
                             params_labour_reg.put("email",leml);
                             params_labour_reg.put("phone",lph);
-                            params_labour_reg.put("password",lbadd);
+                            params_labour_reg.put("password",jpas);
                             params_labour_reg.put("adres",lbadd);
                             params_labour_reg.put("jobcat",jbct);
 
@@ -176,6 +182,12 @@ public class Category_selection extends AppCompatActivity {
 //                                            SharedPreferences.Editor edt=sharedreg.edit();
 //                                            edt.putString("userid",userid);
 //                                            edt.apply();
+                                        }
+                                        else if(s.equalsIgnoreCase("success"))
+                                        {
+                                            Toast.makeText(Category_selection.this, ""+s, Toast.LENGTH_SHORT).show();
+                                            //startActivity(new Intent(Category_selection.this,LabourHome.class));
+
                                         }
 
                                     }
@@ -217,15 +229,7 @@ public class Category_selection extends AppCompatActivity {
     }
 
     public void user(View view) {
-        LayoutInflater inflat=LayoutInflater.from(Category_selection.this);
-        View cuslay=inflat.inflate(R.layout.userloginalert,null);
-
-        CardView cview=cuslay.findViewById(R.id.cdview);
-        Button userlginjava=cuslay.findViewById(R.id.buttonuserlogin);
-        Button userregjava=cuslay.findViewById(R.id.userregbtn);
-        AlertDialog.Builder AB=new AlertDialog.Builder(Category_selection.this);
-        AB.setView(cuslay);
-        final AlertDialog A=AB.create();
-        A.show();
+//
+        startActivity(new Intent(Category_selection.this,UserLOGIN.class));
     }
 }

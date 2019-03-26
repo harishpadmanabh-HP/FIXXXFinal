@@ -99,12 +99,12 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
 
-            android:onClick="registr"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="305dp"
             android:background="@drawable/button"
-            android:textSize="20dp"
-            android:layout_marginLeft="15dp"
-            />
+            android:onClick="registr"
+            android:text="sign up"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/textView5"
