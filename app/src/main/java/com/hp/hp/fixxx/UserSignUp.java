@@ -1,5 +1,6 @@
 package com.hp.hp.fixxx;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class UserSignUp extends AppCompatActivity {
     RequestParams params;
 
     String name_s,email_s,phone_s,password_s,add_s;
+    ProgressDialog progress;
 
 
     @Override
@@ -57,10 +59,16 @@ public class UserSignUp extends AppCompatActivity {
     }
 
     private void signupapi() {
-
+        progress=new ProgressDialog(this);
+        progress.setMessage("Signing up");
+        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progress.setIndeterminate(true);
+        progress.setProgress(20);
+        progress.show();
 
         if(name_s.equalsIgnoreCase("")||email_s.equalsIgnoreCase("")||phone_s.equalsIgnoreCase("")||password_s.equalsIgnoreCase("")||add_s.equalsIgnoreCase(""))
         {
+            progress.dismiss();
             Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
         }
         else
@@ -86,8 +94,9 @@ public class UserSignUp extends AppCompatActivity {
                         {
 
                             String uid=jobject.getString("UserId");
-                            Toast.makeText(getApplicationContext(), "Successfully registeed ! Login now", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Successfully registered ! Login now", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(UserSignUp.this,UserLOGIN.class));
+                            progress.dismiss();
 
                         }
                     }catch (Exception e)
