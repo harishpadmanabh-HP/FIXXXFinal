@@ -1,13 +1,16 @@
 package com.hp.hp.fixxx;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,10 +31,10 @@ import java.util.ArrayList;
  */
 public class UserViewJobFrag extends Fragment {
 
-    AsyncHttpClient client;
+    AsyncHttpClient client,deleteclient;
     JSONArray jarray;
     JSONObject jobject;
-    RequestParams params;
+    RequestParams params,deleteparams;
     ListView lv;
 
     ArrayList<String> jobtitleList;
@@ -54,6 +57,9 @@ public class UserViewJobFrag extends Fragment {
 
         client = new AsyncHttpClient();
         params = new RequestParams();
+
+        deleteclient = new AsyncHttpClient();
+        deleteparams = new RequestParams();
 
         jobtitleList=new ArrayList<String>();
         jobdeadlieList=new ArrayList<String>();
@@ -130,7 +136,67 @@ public class UserViewJobFrag extends Fragment {
         });
 
 
+lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+    @Override
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+
+        final String jobid=jobidlist.get(i);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+        alertDialogBuilder.setMessage("Are you sure, You wanted to delete this job?");
+                alertDialogBuilder.setPositiveButton("yes",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+
+                                deleteparams.put("jobid",jobid);
+                                deleteclient.get("http://sicsglobal.co.in/Service_App/API/DeleteJob.aspx?",deleteparams,new AsyncHttpResponseHandler(){
+                                    @Override
+                                    public void onSuccess(String content) {
+                                        super.onSuccess(content);
+
+                                        try {
+
+                                            JSONObject jsonObject=new JSONObject(content);
+                                            String s=jsonObject.getString("Status");
+                                            if(s.equalsIgnoreCase("Successfully Deleted"))
+                                            {
+                                                Toast.makeText(getContext(), "Successfully Deleted", Toast.LENGTH_SHORT).show();
+
+                                                adapter adpt = new adapter();
+                                                lv.setAdapter(adpt);
+                                            }
+                                            else {
+                                                Toast.makeText(getContext(), "Oops! Something went wrong . Please try again .", Toast.LENGTH_SHORT).show();
+
+                                            }
+
+                                        }catch (Exception e)
+                                        {
+
+                                        }
+
+
+                                    }
+                                });
+
+                            }
+                        });
+
+        alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               // finish();
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+        return true;
+
+    }
+});
 
         return view;
     }
